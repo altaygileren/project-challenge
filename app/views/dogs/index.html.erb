@@ -1,1 +1,14 @@
-<%= render partial: 'thumbnail', collection: @dogs, as: :dog %>
+<div class="container">
+  <div class="row">
+    <% @dogs.each_with_index do |one_dog, index| %>
+    <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+      <%= render partial: 'thumbnail', locals: {dog: one_dog} %>
+    </div>
+    <% if ((index + 1) % 2 == 0) %>
+    <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+      <%= image_tag('/ad.jpg', size: "200x200") %>
+    </div>
+    <% end %>
+    <%end%>
+  </div>
+</div>
